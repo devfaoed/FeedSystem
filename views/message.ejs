@@ -1,0 +1,32 @@
+<%- include("./includes/header.ejs") %>
+    <div class="container">
+        <br>
+        <div class="jumbotron">
+            <h4 class="display-4 text-center">Feed System</h4>
+            <br>
+            <form action="/messages" method="post">
+                <input id = "name" name="name" class="form-control" placeholder="Name">
+                <br>
+                <textarea id = "message" rows="5" cols="" name="message" class="form-control" placeholder="Your Feed Here"></textarea>
+                <br>
+                <button id="send" class="btn btn-success">Send Feed</button>
+                <a href="/logout" class="btn btn-danger">Logout</a>
+            </form>
+            
+        </div>
+
+        <div id="messages">
+            <div class="row">
+                <% message.forEach((feed) => { %>
+                    <div class="col-md-12">
+                        <h5><em><%= feed.name %></em></h5>
+                        <p><span><%= feed.message %></</p>
+                    </div>
+                <% }) %>
+            </div>
+        </div>
+       
+    </div>
+
+<%- include("./includes/footer.ejs") %>
+
